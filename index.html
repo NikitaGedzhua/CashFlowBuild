@@ -9,15 +9,9 @@
 
   </head>
   <body>
-    <div id="unity-container" style="width: 100%; height: 100%" class="unity-desktop">
-      <canvas id="unity-canvas" width=1512 height=900 style="width: 100%; height: 100%"></canvas>
-<style>
-.container {
-width: 80%;
-margin: 0 auto;
-padding: 20px;
-}
-</style>
+    <div id="unity-container" style="display: table; width: 100%; height: 100%;" class="unity-desktop">
+      <canvas id="unity-canvas" width=1512 height=900></canvas>
+
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -39,6 +33,11 @@ padding: 20px;
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
+      var mywidth = innerWidth;
+      var myheight = innerHeight;
+       document.getElementById("unity-container").style.width = mywidth + "px";
+       document.getElementById("unity-container").style.height = myheight + "px";
+      
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
