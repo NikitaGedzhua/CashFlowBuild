@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div id="unity-container" style="position: absolute; width: 100%; height: 100%" class="unity-desktop">
-      <canvas id="unity-canvas" width=1512 height=900 style="width: 100%; height: 100%"></canvas>
+    <div id="unity-container" style="padding: 0px; position: absolute; width: 100%; height: 100%" class="unity-desktop">
+      <canvas id="unity-canvas" width=1512 height=900 ></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -74,7 +74,7 @@
       // Set this to false if you want to decouple this synchronization from
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
-       config.matchWebGLToCanvasSize = false;
+      // config.matchWebGLToCanvasSize = false;
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
