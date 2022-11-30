@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Cryptoprinciple</title>
+    <title>Unity WebGL Player | CryproCashFlow</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
- <body style="background-color:black;">
+  <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1260 height=750></canvas>
       <div id="unity-loading-bar">
@@ -17,7 +17,11 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
-     
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">CryproCashFlow</div>
+      </div>
     </div>
     <script src="web3/index.js"></script>
     <script>
@@ -59,8 +63,8 @@
         frameworkUrl: buildUrl + "/CryptoCashBuild.framework.js",
         codeUrl: buildUrl + "/CryptoCashBuild.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Cryptoprinciple",
+        companyName: "Cryptoprinciple",
+        productName: "CryproCashFlow",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -79,18 +83,21 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-       canvas.style.width = "1260px";
+        canvas.style.width = "1260px";
         canvas.style.height = "750px";
       }
       loadingBar.style.display = "block";
 
-       var script = document.createElement("script");
+      var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
         }).catch((message) => {
           alert(message);
         });
